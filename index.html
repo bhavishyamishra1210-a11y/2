@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 Homework Hub Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <h1>📚 Homework Hub</h1>
+        <div class="user-info">
+            <span id="due-today-count">Due Today: 0</span>
+            <button class="add-task-btn" onclick="openModal()">+ Add New Assignment</button>
+        </div>
+    </header>
+
+    <main class="dashboard-container">
+        
+        <section class="legend-bar">
+            <h2>Subject Legend</h2>
+            <div class="legend-item color-os">OS</div>
+            <div class="legend-item color-dt">Design Thinking</div>
+            <div class="legend-item color-wd">Web Development</div>
+            <div class="legend-item color-java">Java</div>
+        </section>
+        
+        <section class="tasks-section">
+            <h2>🔥 Upcoming Deadlines</h2>
+            <div id="task-list" class="task-list">
+                <p id="no-tasks-message">Hooray! No active assignments right now.</p>
+            </div>
+        </section>
+        
+        <section class="completed-section">
+            <h2>✅ Motivation Stats</h2>
+            <p><strong>Total Completed:</strong> <span id="completed-count">0</span></p>
+            <p><strong>Completion Rate:</strong> <span id="completion-rate">0%</span></p>
+            <button onclick="viewCompleted()">View Completed Log</button>
+        </section>
+        
+    </main>
+
+    <div id="task-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Add New Assignment</h2>
+            <form id="task-form">
+                <input type="hidden" id="task-id">
+                
+                <label for="name">Assignment Name:</label>
+                <input type="text" id="name" required>
+
+                <label for="subject">Subject:</label>
+                <select id="subject" required>
+                    <option value="Operating System">Operating System</option>
+                    <option value="Design Thinking">Design Thinking</option>
+                    <option value="Web Development">Web Development</option>
+                    <option value="Java">Java</option>
+                </select>
+
+                <label for="deadline">Deadline (Date & Time):</label>
+                <input type="datetime-local" id="deadline" required>
+
+                <label for="description">Description (Notes):</label>
+                <textarea id="description"></textarea>
+
+                <button type="submit" id="form-submit-btn">Save Assignment</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
